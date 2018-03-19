@@ -1,0 +1,17 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.cover {
+    min-height:100%;
+    display:flex;
+    align-items:center
+}
+
+#error-container {
+    background-image: url(img/background.jpg);
+    background-size: cover;
+    
+}

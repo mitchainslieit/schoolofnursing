@@ -1,0 +1,19 @@
+html, body {
+    padding: 0;
+    margin: 0;
+	height:100%;
+}
+
+body {
+	background-image: url("img/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.cover {
+    min-height:100%;
+    display:flex;
+    align-items:center
+}
