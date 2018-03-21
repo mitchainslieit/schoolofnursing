@@ -1,0 +1,80 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+#top-container {
+    position: inherit;
+    background-image: url(img/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#son-logo {
+    margin-right: 7%;
+    height: 25px;
+    width: auto;
+}
+
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+}
+
+#search {
+    padding: 3%;
+}
+
+.search-bar[type=text] {
+    width: 290px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('img/icon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
+}
+
+.search-bar[type=text]:focus {
+    width: 100%;
+}
+
+.cover {
+    min-height:100%;
+    display:flex;
+    align-items:center
+}
+
+.row{
+    margin-top:40px;
+    padding: 0 10px;
+}
+
+.panel-heading div {
+    margin-top: -18px;
+    font-size: 15px;
+}
+
+#h1-sub {
+    font-size:4vh;
+}
+
+#h3-sub {
+    font-size:0.75em;
+}
+
+.adjustw {
+    width: 10%;
+}
+
+.clickable{ cursor: pointer; float: right;}
+.panel-heading div span{ margin-left:5px; }
+.panel-body{ display: block; }

@@ -1,0 +1,29 @@
+html, body {
+    margin: 25mm 25mm 25mm 25mm;
+    padding: 0px;
+}
+
+body {
+    width: 8.5in;
+    background-color: #000000;
+}
+
+#logo {
+    display: block;
+    position: inherit;
+    width:32pt;
+    height: 32pt;
+}
+
+#profimage {
+    display: inline-block;
+    position: relative;
+    width: 144pt;
+    height: 144pt;
+}
+
+#head {
+    display: block;
+    position: inherit;
+}
+
