@@ -1,12 +1,20 @@
 # schoolofnursing
 School of Nursing (Web based CV Storage)
 
-Notes for 03/22/2018
-There are 2 ways to update the cv of a faculty, first option would be creating a new webpage, the second would be creating a modal.
-PS. Create a button where if I clicked it it will change the session value like for example is the code below
+Notes for 03/26/2018(Monday)
+~Continue ADMIN website, Finish it by fixing Edit Profile ~> Edit Email (Email and Confirm Password)
+~(OPTIONAL) Research on get notification if a file is uploaded by the faculty
+~Start of Faculty website (Mockup, Ideas, Functions to use, etc)
 
-if(isset($_POST['thisfact']) {
-  $_SESSION['email'] = $row[email];
-}
+Functions for Faculty website
+~Edit my Email
+~Change my Password
+~View my CV
+~Download and Edit my CV
+~Send Updated CV
+~Logout
 
-This is just an idea of how the code will gonna go or etc. there should be a unique button for each since the table is auto generated, now figure how to make it unique from the others.
+AIM DATE FOR PRESENTATION ~> April 05, 2018
+~As much as possible finish all the functions until that day.
+~Succeeding days ----> Research on how to make the website more secured.
+
