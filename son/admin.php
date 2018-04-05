@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="bs/css/font-awesome.min.css"/>
         <link rel="stylesheet" href="bs/css/bootstrap.min.css"/>
         <script defer src="bs/js/fontawesome-all.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+        <script src="bs/js/jquery-3.1.0.min.js"></script>
         <script src="bs/js/bootstrap.min.js"></script>
         <script src="scripts/jss/sitescripts.js"></script>
     </head>
@@ -29,11 +29,17 @@
         if (isset($_POST['cp'])) {
             require 'scripts/chngepasswd.php';
         }
+        if (isset($_POST['cpm'])) {
+            require 'scripts/chngemypasswd.php';
+        }
         if (isset($_POST['remove'])) {
             require 'scripts/removefact.php';
         }
         if (isset($_POST['go-update'])) {
             require 'scripts/update.php';
+        }
+        if (isset($_POST['change-email'])) {
+            require 'scripts/changeemail.php';
         }
         if (isset($_GET['open-new'])) {
             $_SESSION['search_fact_email'] = $_GET['fact-email'];
@@ -70,9 +76,12 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
                         <div class="dropdown-menu m-2 " aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#passwd">Edit Profile</a>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editemail">Change my Email</a>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mypasswd">Change my Password</a>
                         </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contactus">Contact Us</a>
                     </li>
                 </ul>
                 <a class="btn btn-primary form-inline ml-auto" href="scripts/logout.php">Logout</a>
@@ -152,7 +161,7 @@
 			</div>
 		</div>
 	</div>
-    <div class="bg-dark text-white">
+    <div class="bg-dark text-white" id="contactus">
         <div class="container">
             <div class="row">
                 <div class="p-4 col-md-4">
@@ -260,8 +269,6 @@
                         <div class="col-md-12">
                             <div class="form-group"><label class="text-white">Email</label>
                             <input type="email" class="form-control" placeholder="Enter his/her Email" name="idno" required></div>
-                            <div class="form-group"><label class="text-white">Old Password</label>
-                            <input type="password" class="form-control" placeholder="Enter his/her old password" name="old_password" required></div>
                             <div class="form-group"><label class="text-white">Enter the new password</label>
                             <input type="password" class="form-control" placeholder="New Password" name="new_password" required></div>
                             <div class="form-group"><label class="text-white">Confirm new password</label>
@@ -298,7 +305,36 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" name="cp">Submit</button>
+                        <button type="submit" class="btn btn-primary" name="cpm">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+   <div id="editemail" class="modal fade py-5" role="myemail">
+        <div class="modal-dialog">
+            <div class="modal-content add-faculty bg-dark">
+                <form class="" method="post" action="admin.php" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-white">Change My 
+                        Email
+                        <button type="button" class="close text-danger" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-md-12">
+                            <?php 
+                                $fact_email = $_SESSION['email'];
+                                echo "<input name='old-email' value='$fact_email' type='hidden'>";
+                            ?>
+                            <div class="form-group"><label class="text-white">Enter your new email</label>
+                            <input type="email" class="form-control" placeholder="New Email" name="new_email" required></div>
+                            
+                            <div class="form-group"><label class="text-white">Your Password</label>
+                            <input type="password" class="form-control" placeholder="Your Password" name="password" required></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" name="change-email">Submit</button>
                     </div>
                 </form>
             </div>
