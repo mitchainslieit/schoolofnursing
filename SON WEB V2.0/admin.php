@@ -32,6 +32,9 @@
         if (isset($_POST['cpm'])) {
             require 'scripts/chngemypasswd.php';
         }
+        if (isset($_POST['cmemail'])) {
+            require 'scripts/changeemail.php';
+        }
         if (isset($_POST['remove'])) {
             require 'scripts/removefact.php';
         }
@@ -76,7 +79,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
                         <div class="dropdown-menu m-2 " aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editemail">Change my Email</a>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myemail">Change my Email</a>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mypasswd">Change my Password</a>
                         </div>
                     </li>
@@ -311,30 +314,28 @@
             </div>
         </div>
     </div>
-   <div id="editemail" class="modal fade py-5" role="myemail">
+    <div id="myemail" class="modal fade py-5" role="mynewpassword">
         <div class="modal-dialog">
             <div class="modal-content add-faculty bg-dark">
                 <form class="" method="post" action="admin.php" enctype="multipart/form-data">
                     <div class="modal-header">
-                        <h4 class="modal-title text-white">Change My 
-                        Email
+                        <h4 class="modal-title text-white">Reset My Password</h4>
                         <button type="button" class="close text-danger" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
                         <div class="col-md-12">
                             <?php 
                                 $fact_email = $_SESSION['email'];
-                                echo "<input name='old-email' value='$fact_email' type='hidden'>";
+                                echo "<input name='idno' value='$fact_email' type='hidden'>";
                             ?>
-                            <div class="form-group"><label class="text-white">Enter your new email</label>
-                            <input type="email" class="form-control" placeholder="New Email" name="new_email" required></div>
-                            
+                            <div class="form-group"><label class="text-white">Enter your new Email</label>
+                            <input type="email" class="form-control" placeholder="New Emails" name="new_email" required></div>
                             <div class="form-group"><label class="text-white">Your Password</label>
                             <input type="password" class="form-control" placeholder="Your Password" name="password" required></div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" name="change-email">Submit</button>
+                        <button type="submit" class="btn btn-primary" name="cmemail">Submit</button>
                     </div>
                 </form>
             </div>

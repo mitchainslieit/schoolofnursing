@@ -25,6 +25,9 @@
         if (isset($_POST['cp'])) {
             require 'scripts/chngepasswd.php';
         }
+        if (isset($_POST['cmemail'])) {
+            require 'scripts/changeemail.php';
+        }
     ?>
     <body>
         <nav class="navbar navbar-expand-md bg-secondary navbar-dark fixed-top">
@@ -39,7 +42,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
                         <div class="dropdown-menu m-2 " aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#passwd">Change Email</a>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#myemail">Change Email</a>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mypasswd">Change my Password</a>
                         </div>
                     </li>
@@ -87,9 +90,38 @@
         </div>
         <!--------------------------------------- MODAL --------------------------------------->
         <div id="mypasswd" class="modal fade py-5" role="mynewpassword">
+            <div class="modal-dialog">
+                <div class="modal-content add-faculty bg-dark">
+                    <form class="" method="post" action="faculty.php" enctype="multipart/form-data">
+                        <div class="modal-header">
+                            <h4 class="modal-title text-white">Reset My Password</h4>
+                            <button type="button" class="close text-danger" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-md-12">
+                                <?php 
+                                    $fact_email = $_SESSION['email'];
+                                    echo "<input name='idno' value='$fact_email' type='hidden'>";
+                                ?>
+                                <div class="form-group"><label class="text-white">Old Password</label>
+                                <input type="password" class="form-control" placeholder="Enter your old password" name="old_password" required></div>
+                                <div class="form-group"><label class="text-white">Enter your new password</label>
+                                <input type="password" class="form-control" placeholder="New Password" name="new_password" required></div>
+                                <div class="form-group"><label class="text-white">Confirm your password</label>
+                                <input type="password" class="form-control" placeholder="Confirm new password" name="conf_password" required></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" name="cp">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="myemail" class="modal fade py-5" role="mynewpassword">
         <div class="modal-dialog">
             <div class="modal-content add-faculty bg-dark">
-                <form class="" method="post" action="faculty.php" enctype="multipart/form-data">
+                <form class="" method="post" action="admin.php" enctype="multipart/form-data">
                     <div class="modal-header">
                         <h4 class="modal-title text-white">Reset My Password</h4>
                         <button type="button" class="close text-danger" data-dismiss="modal">&times;</button>
@@ -100,16 +132,14 @@
                                 $fact_email = $_SESSION['email'];
                                 echo "<input name='idno' value='$fact_email' type='hidden'>";
                             ?>
-                            <div class="form-group"><label class="text-white">Old Password</label>
-                            <input type="password" class="form-control" placeholder="Enter your old password" name="old_password" required></div>
-                            <div class="form-group"><label class="text-white">Enter your new password</label>
-                            <input type="password" class="form-control" placeholder="New Password" name="new_password" required></div>
-                            <div class="form-group"><label class="text-white">Confirm your password</label>
-                            <input type="password" class="form-control" placeholder="Confirm new password" name="conf_password" required></div>
+                            <div class="form-group"><label class="text-white">Enter your new Email</label>
+                            <input type="email" class="form-control" placeholder="New Emails" name="new_email" required></div>
+                            <div class="form-group"><label class="text-white">Your Password</label>
+                            <input type="password" class="form-control" placeholder="Your Password" name="password" required></div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" name="cp">Submit</button>
+                        <button type="submit" class="btn btn-primary" name="cmemail">Submit</button>
                     </div>
                 </form>
             </div>
